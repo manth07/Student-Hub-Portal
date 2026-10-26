@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3c72;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a5298;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#grad)" rx="12" />
+  <circle cx="300" cy="150" r="60" fill="rgba(255,255,255,0.15)" />
+  <path d="M 270 160 L 300 120 L 330 160 Z" fill="#ffffff" />
+  <circle cx="300" cy="135" r="8" fill="#ffd700" />
+  <text x="300" y="250" font-family="'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">StudentHub Campus Event</text>
+  <text x="300" y="285" font-family="'Segoe UI', Roboto, sans-serif" font-size="16" fill="#e0e8f5" text-anchor="middle">CHARUSAT - University Student Portal</text>
+  <rect x="220" y="315" width="160" height="36" rx="18" fill="#ffb703" />
+  <text x="300" y="339" font-family="'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="bold" fill="#023047" text-anchor="middle">Official Event</text>
+</svg>
