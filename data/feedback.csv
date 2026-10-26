@@ -1,0 +1,5 @@
+id,student_name,email,rating,category,comments,submitted_at
+1,"Aarav Sharma","aarav.sharma@charusat.edu.in",5,"UI/UX","Portal design is clean, fast, and very easy to navigate on mobile.","2026-10-21 16:20:00"
+2,"Meet Joshi","meet.joshi@charusat.edu.in",4,"Events","Event search and category filters are very helpful for finding workshops.","2026-10-22 10:45:00"
+3,"Manthan Vasoya",25ce136@charusat.edu.in,5,UI/UX,"Very responsive layout and smooth dark mode.","2026-10-26 05:22:44"
+4,"Manthan Vasoya",25ce136@charusat.edu.in,5,UI/UX,"Very responsive layout and smooth dark mode.","2026-10-26 05:24:20"
