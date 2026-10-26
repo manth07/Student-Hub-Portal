@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Directory & Profiles | StudentHub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+      <a href="/studenthub/index.html" class="brand">
+        <span>StudentHub</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item"><a href="/studenthub/index.html">Home</a></li>
+        <li class="nav-item"><a href="/studenthub/about.html">About</a></li>
+        <li class="nav-item"><a href="/studenthub/events.html">Events</a></li>
+        <li class="nav-item"><a href="/studenthub/profile.html" class="active">Directory</a></li>
+        <li class="nav-item"><a href="/studenthub/faq.html">FAQ</a></li>
+        <li class="nav-item"><a href="/studenthub/contact.html">Contact</a></li>
+        <li class="nav-item"><a href="/studenthub/feedback.html">Feedback</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/students_crud.php">Student CRUD</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/events_crud.php">Event CRUD</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/ajax_crud.html">AJAX API</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/admin_dashboard.php">Admin Panel</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div id="nav-user-controls" style="display:flex; align-items:center; gap:6px;"></div>
+        <button id="theme-toggle-btn" class="theme-toggle-btn" type="button" aria-label="Toggle theme">Dark Mode</button>
+        <button id="hamburger-btn" class="hamburger-btn" type="button" aria-label="Menu">Menu</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="breadcrumb-container">
+    <nav aria-label="Breadcrumb">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/studenthub/index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Student Directory</li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="main-content">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:20px;">
+      <div>
+        <h1>CHARUSAT Student Directory</h1>
+        <p class="text-muted">
+          Browse student profiles across departments. Loaded asynchronously from <code>data/students.json</code> (Practical 6).
+        </p>
+      </div>
+      <div>
+        <span id="student-count" class="badge badge-tech" style="font-size:0.9rem; padding:6px 12px;">Loading profiles...</span>
+      </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <input type="text" id="student-search" class="filter-input" placeholder="Search student name, enrollment (e.g. 24CE001), or email..." aria-label="Search Student">
+
+      <select id="student-course" class="filter-select" aria-label="Filter by Course">
+        <option value="All">All Courses</option>
+        <option value="B.Tech CE">B.Tech CE</option>
+        <option value="B.Tech IT">B.Tech IT</option>
+        <option value="B.Tech CSE">B.Tech CSE</option>
+        <option value="BCA">BCA</option>
+      </select>
+
+      <select id="student-year" class="filter-select" aria-label="Filter by Year">
+        <option value="All">All Years</option>
+        <option value="1">1st Year</option>
+        <option value="2">2nd Year</option>
+        <option value="3">3rd Year</option>
+        <option value="4">4th Year</option>
+      </select>
+    </div>
+
+    <!-- Dynamic Students Grid -->
+    <div id="students-container" class="grid-3" aria-live="polite">
+      <div class="card text-center" style="grid-column: 1 / -1; padding: 40px;">
+        <p>Loading profiles from data/students.json...</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-bottom">
+      <p>&copy; 2026 StudentHub Portal | ITUE203 Practical 6 (Fetch API Profiles)</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/fetch_data.js"></script>
+</body>
+</html>

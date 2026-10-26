@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact University Helpdesk | StudentHub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+      <a href="/studenthub/index.html" class="brand">
+        <span>StudentHub</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item"><a href="/studenthub/index.html">Home</a></li>
+        <li class="nav-item"><a href="/studenthub/about.html">About</a></li>
+        <li class="nav-item"><a href="/studenthub/events.html">Events</a></li>
+        <li class="nav-item"><a href="/studenthub/profile.html">Directory</a></li>
+        <li class="nav-item"><a href="/studenthub/faq.html">FAQ</a></li>
+        <li class="nav-item"><a href="/studenthub/contact.html" class="active">Contact</a></li>
+        <li class="nav-item"><a href="/studenthub/feedback.html">Feedback</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/students_crud.php">Student CRUD</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/events_crud.php">Event CRUD</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/ajax_crud.html">AJAX API</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/admin_dashboard.php">Admin Panel</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div id="nav-user-controls" style="display:flex; align-items:center; gap:6px;"></div>
+        <button id="theme-toggle-btn" class="theme-toggle-btn" type="button" aria-label="Toggle theme">Dark Mode</button>
+        <button id="hamburger-btn" class="hamburger-btn" type="button" aria-label="Menu">Menu</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="breadcrumb-container">
+    <nav aria-label="Breadcrumb">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/studenthub/index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Contact Support</li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="main-content">
+    <div style="max-width: 650px; margin: 0 auto 20px auto; text-align: center;">
+      <h1>Contact University Helpdesk</h1>
+      <p class="text-muted">
+        Submit inquiries to academic coordinators. Submissions are sanitized with PHP and appended to <code>data/contacts.json</code> (Practical 7).
+      </p>
+    </div>
+
+    <div class="form-card">
+      <form method="POST" action="/studenthub/php/contact_process.php" id="contact-form">
+        <div class="form-group">
+          <label class="form-label" for="contact-name">Your Full Name *</label>
+          <input type="text" id="contact-name" name="name" class="form-control" required placeholder="e.g. Diya Patel">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="contact-email">Email Address *</label>
+          <input type="email" id="contact-email" name="email" class="form-control" required placeholder="e.g. diya.patel@charusat.edu.in">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="contact-subject">Subject *</label>
+          <input type="text" id="contact-subject" name="subject" class="form-control" required placeholder="e.g. Inquiry regarding ITUE203 practical exam batch">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="contact-message">Message *</label>
+          <textarea id="contact-message" name="message" class="form-control" rows="5" required placeholder="Type your inquiry or message here..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Submit Inquiry</button>
+      </form>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="/studenthub/php/contact_process.php" class="btn btn-outline btn-sm">View All Saved Contact Messages (contacts.json)</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-bottom">
+      <p>&copy; 2026 StudentHub Portal | ITUE203 Practical 7 (JSON Storage)</p>
+    </div>
+  </footer>
+
+  <script src="/studenthub/js/script.js"></script>
+</body>
+</html>

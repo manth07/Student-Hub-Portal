@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Events & Workshops | StudentHub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+      <a href="/studenthub/index.html" class="brand">
+        <span>StudentHub</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item"><a href="/studenthub/index.html">Home</a></li>
+        <li class="nav-item"><a href="/studenthub/about.html">About</a></li>
+        <li class="nav-item"><a href="/studenthub/events.html" class="active">Events</a></li>
+        <li class="nav-item"><a href="/studenthub/profile.html">Directory</a></li>
+        <li class="nav-item"><a href="/studenthub/faq.html">FAQ</a></li>
+        <li class="nav-item"><a href="/studenthub/contact.html">Contact</a></li>
+        <li class="nav-item"><a href="/studenthub/feedback.html">Feedback</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/students_crud.php">Student CRUD</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/events_crud.php">Event CRUD</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/ajax_crud.html">AJAX API</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/admin_dashboard.php">Admin Panel</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div id="nav-user-controls" style="display:flex; align-items:center; gap:6px;"></div>
+        <button id="theme-toggle-btn" class="theme-toggle-btn" type="button" aria-label="Toggle theme">Dark Mode</button>
+        <button id="hamburger-btn" class="hamburger-btn" type="button" aria-label="Menu">Menu</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="breadcrumb-container">
+    <nav aria-label="Breadcrumb">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/studenthub/index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Campus Events</li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="main-content">
+    <div style="margin-bottom: 25px;">
+      <h1>Campus Events & Workshops</h1>
+      <p class="text-muted">
+        Explore university hackathons, cultural festivals, technical coding contests, and guest workshops. Powered by JavaScript Fetch API and dynamic JSON data loading (Practical 6).
+      </p>
+    </div>
+
+    <!-- Live Search, Category Filter & Sorting Bar -->
+    <section class="filter-bar" aria-label="Event Filtering Controls">
+      <input type="text" id="event-search" class="filter-input" placeholder="Search by event title, venue, or keyword..." aria-label="Search Events">
+
+      <select id="event-category" class="filter-select" aria-label="Filter by Category">
+        <option value="All">All Categories</option>
+        <option value="Technical">Technical</option>
+        <option value="Cultural">Cultural</option>
+        <option value="Workshop">Workshop</option>
+        <option value="Sports">Sports</option>
+      </select>
+
+      <select id="event-sort" class="filter-select" aria-label="Sort Events">
+        <option value="date-asc">Date: Earliest First</option>
+        <option value="date-desc">Date: Latest First</option>
+      </select>
+    </section>
+
+    <!-- Dynamic Events Grid Loaded via JS -->
+    <section id="events-container" class="grid-3" aria-live="polite">
+      <!-- Injected by fetch_data.js -->
+      <div class="card text-center" style="grid-column: 1 / -1; padding: 40px;">
+        <p>Loading events from data/events.json...</p>
+      </div>
+    </section>
+
+    <!-- Pagination Controls -->
+    <div class="pagination" aria-label="Events Pagination">
+      <button id="event-prev-btn" class="pagination-btn" type="button">&larr; Previous</button>
+      <span id="event-page-info" class="pagination-info">Page 1 of 3</span>
+      <button id="event-next-btn" class="pagination-btn" type="button">Next &rarr;</button>
+    </div>
+  </main>
+
+  <!-- Practical 4: Interactive Modal Popup for Event Details & Registration -->
+  <div id="event-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title" class="modal-title">Event Title</h3>
+        <button id="modal-close-btn" class="modal-close-btn" type="button" aria-label="Close Modal">&times;</button>
+      </div>
+      <div id="modal-body" class="modal-body">
+        <!-- Injected dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline btn-sm" onclick="closeModal()">Close</button>
+        <a href="login.html" class="btn btn-primary btn-sm">Proceed to Register</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-bottom">
+      <p>&copy; 2026 StudentHub Portal | ITUE203 Practical 4 & 6</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/fetch_data.js"></script>
+</body>
+</html>

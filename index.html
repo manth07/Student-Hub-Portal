@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StudentHub Portal - Unified Campus Academic and Event Platform for CHARUSAT Students">
+  <title>StudentHub Portal | Home</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>
+    (function() {
+      if (window.location.protocol === 'file:' || (window.location.port && window.location.port !== '80' && window.location.port !== '443')) {
+        var currentFile = window.location.pathname.split('/').pop() || 'login.html';
+        window.location.replace('http://localhost/studenthub/' + currentFile);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <!-- Practical 2: Accessibility Skip to Content Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Practical 4: Top Dismissible Announcement Banner -->
+  <div id="notice-banner" class="notice-banner" role="alert">
+    <p><strong>Announcement:</strong> Registration for HackCHARUSAT 2026 is now open! Check out the Events section to participate.</p>
+    <button id="notice-close-btn" class="notice-close-btn" type="button" aria-label="Close Announcement">&times;</button>
+  </div>
+
+  <!-- Header & Navigation Bar -->
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+      <a href="/studenthub/index.html" class="brand">
+        <span>StudentHub</span>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item"><a href="/studenthub/index.html" class="active">Home</a></li>
+        <li class="nav-item"><a href="/studenthub/about.html">About</a></li>
+        <li class="nav-item"><a href="/studenthub/events.html">Events</a></li>
+        <li class="nav-item"><a href="/studenthub/profile.html">Directory</a></li>
+        <li class="nav-item"><a href="/studenthub/faq.html">FAQ</a></li>
+        <li class="nav-item"><a href="/studenthub/contact.html">Contact</a></li>
+        <li class="nav-item"><a href="/studenthub/feedback.html">Feedback</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/students_crud.php">Student CRUD</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/events_crud.php">Event CRUD</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/ajax_crud.html">AJAX API</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/admin_dashboard.php">Admin Panel</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div id="nav-user-controls" style="display:flex; align-items:center; gap:6px;"></div>
+        <button id="theme-toggle-btn" class="theme-toggle-btn" type="button" aria-label="Toggle theme">Dark Mode</button>
+        <button id="hamburger-btn" class="hamburger-btn" type="button" aria-label="Menu">Menu</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb-container">
+    <nav aria-label="Breadcrumb">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/studenthub/index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Portal Overview</li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main Content Area -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-title">
+      <span class="badge badge-tech" style="margin-bottom: 12px;">CHARUSAT University Portal</span>
+      <h1 id="hero-title">Empowering Student Life & Academic Excellence</h1>
+      <p>
+        StudentHub is a comprehensive college web portal designed for B.Tech & BCA students.
+        Track upcoming campus hackathons, manage student records, submit feedback, and explore interactive modules built with modern web technologies.
+      </p>
+      <div class="hero-btns">
+        <a href="/studenthub/events.html" class="btn btn-primary">Explore Campus Events</a>
+        <a href="/studenthub/profile.html" class="btn btn-secondary">Student Directory</a>
+        <a href="/studenthub/ajax_crud.html" class="btn btn-outline admin-only-link">Live AJAX API</a>
+      </div>
+    </section>
+
+    <!-- Practical 4: Interactive Image & Highlight Slider -->
+    <section aria-label="Campus Highlights Carousel">
+      <div class="slider-container">
+        <div class="slider-wrapper" id="slider-wrapper">
+          <div class="slide">
+            <h3>HackCHARUSAT 2026 Hackathon</h3>
+            <p>National level 36-hour coding challenge with cutting-edge problem statements in AI and Web3.</p>
+            <a href="events.html" class="btn btn-primary btn-sm">View Hackathon Details</a>
+          </div>
+          <div class="slide" style="background: linear-gradient(135deg, #0d9488 0%, #115e59 100%);">
+            <h3>Spoural Annual Youth Fest</h3>
+            <p>Experience mesmerizing dance battles, music rock bands, and vibrant fine arts exhibitions on campus lawns.</p>
+            <a href="events.html" class="btn btn-outline btn-sm" style="color:#fff; border-color:#fff;">Learn More</a>
+          </div>
+          <div class="slide" style="background: linear-gradient(135deg, #4338ca 0%, #312e81 100%);">
+            <h3>Full Stack Web Frameworks Bootcamp</h3>
+            <p>Hands-on practical workshop mastering HTML5, CSS3, JavaScript Fetch API, procedural PHP, and MySQL.</p>
+            <a href="about.html" class="btn btn-primary btn-sm">Read Syllabus</a>
+          </div>
+        </div>
+        <button id="slider-prev" class="slider-btn slider-prev" type="button" aria-label="Previous Slide">&#10094;</button>
+        <button id="slider-next" class="slider-btn slider-next" type="button" aria-label="Next Slide">&#10095;</button>
+        <div class="slider-dots" id="slider-dots"></div>
+      </div>
+    </section>
+
+    <!-- Portal Key Modules Grid -->
+    <section aria-labelledby="features-title">
+      <h2 id="features-title" class="text-center" style="margin-bottom: 25px;">Core Portal Modules (Practicals 1 to 15)</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3 class="card-title">Dynamic Events & Modals</h3>
+          <p class="text-muted">
+            Explore 15 real campus events loaded asynchronously from JSON via Fetch API, featuring live category filters and interactive registration modal popups.
+          </p>
+          <a href="events.html" class="btn btn-outline btn-sm">Browse Events &rarr;</a>
+        </article>
+
+        <article class="card">
+          <h3 class="card-title">Regex Validation & Security</h3>
+          <p class="text-muted">
+            Strict client-side JavaScript regex validation with a dynamic password strength meter, followed by server-side verification and bcrypt hashing.
+          </p>
+          <a href="register.html" class="btn btn-outline btn-sm">Try Registration &rarr;</a>
+        </article>
+
+        <article class="card admin-only-link">
+          <h3 class="card-title">Single-Page AJAX CRUD</h3>
+          <p class="text-muted">
+            Perform instant Create, Read, Update, and Delete operations on the MySQL student database with no full-page reloads using the modern Fetch API.
+          </p>
+          <a href="ajax_crud.html" class="btn btn-outline btn-sm">Launch AJAX CRUD &rarr;</a>
+        </article>
+
+        <article class="card">
+          <h3 class="card-title">Student Directory</h3>
+          <p class="text-muted">
+            Searchable directory of engineering students across B.Tech CE, IT, CSE, and BCA departments with skill tags and instant search filtering.
+          </p>
+          <a href="profile.html" class="btn btn-outline btn-sm">Open Directory &rarr;</a>
+        </article>
+
+        <article class="card">
+          <h3 class="card-title">File Handling & Posters</h3>
+          <p class="text-muted">
+            Process contact inquiries into JSON, store ratings in CSV files, and upload event promotional posters with strict server-side MIME and size checks.
+          </p>
+          <a href="contact.html" class="btn btn-outline btn-sm">View Contact &rarr;</a>
+        </article>
+
+        <article class="card admin-only-link">
+          <h3 class="card-title">Admin Console & Analytics</h3>
+          <p class="text-muted">
+            Comprehensive admin dashboard equipped with live SQL COUNT(*) analytics cards, recent event registrations, and security audit log tracking.
+          </p>
+          <a href="admin.html" class="btn btn-outline btn-sm">Admin Gateway &rarr;</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- College Course Information Banner -->
+    <section class="card" style="margin-top: 20px; background: linear-gradient(to right, rgba(30,64,175,0.05), rgba(13,148,136,0.05));">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
+        <div>
+          <h3>Academic Course: ITUE203 — Web Development Frameworks</h3>
+          <p class="text-muted" style="margin: 0;">
+            Semester 3, B.Tech | Charotar University of Science and Technology (CHARUSAT), Changa, Gujarat.
+          </p>
+        </div>
+        <div>
+          <a href="docs/sitemap_and_wireframes.html" class="btn btn-secondary btn-sm">View Sitemap & Wireframes</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>StudentHub Portal</h4>
+        <p>A unified campus portal developed for ITUE203 Web Development Frameworks course practicals 1 to 15 at CHARUSAT.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="/studenthub/index.html">Home</a></li>
+          <li><a href="/studenthub/about.html">About Portal</a></li>
+          <li><a href="/studenthub/events.html">Campus Events</a></li>
+          <li><a href="/studenthub/profile.html">Student Directory</a></li>
+          <li><a href="/studenthub/faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col admin-only-link">
+        <h4>Admin Modules</h4>
+        <ul class="footer-links">
+          <li><a href="/studenthub/php/students_crud.php">Student CRUD</a></li>
+          <li><a href="/studenthub/php/events_crud.php">Event CRUD</a></li>
+          <li><a href="/studenthub/ajax_crud.html">AJAX API</a></li>
+          <li><a href="/studenthub/php/admin_dashboard.php">Admin Panel</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>University Campus</h4>
+        <p>CHARUSAT Campus, Changa, Dist. Anand, Gujarat - 388421</p>
+        <p style="margin-top: 8px;"><strong>Course:</strong> ITUE203 Semester 3</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 StudentHub Portal. Built for Academic Lab Submission & Evaluation.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+# Exclude Lab Submissions, Word/PDF Reports & Screenshots
+docs/submissions/
+docs/*.md
+docs/reports/
+screenshots/
+*.docx
+*.pdf
+*.doc
+
+# Exclude AI Editor & Planning Markdown Files
+Memory.md
+Rules.md
+PRD.md
+Architecture.md
+Roadmap.md
+Design.md
+Database.md
+Practical*.md
+
+# Exclude Generator Scripts & Dependencies
+*.py
+*.ps1
+*.bat
+node_modules/
+package.json
+package-lock.json
+__pycache__/
+.venv/
+test*.php
+gen*.php
+
+# Exclude IDE & OS Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

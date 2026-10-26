@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Login | StudentHub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>
+    (function() {
+      if (window.location.protocol === 'file:' || (window.location.port && window.location.port !== '80' && window.location.port !== '443')) {
+        var currentFile = window.location.pathname.split('/').pop() || 'login.html';
+        window.location.replace('http://localhost/studenthub/' + currentFile);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top-Right Controls (No Navbar) -->
+  <div style="position: absolute; top: 16px; right: 20px; z-index: 100;">
+    <button id="theme-toggle-btn" class="theme-toggle-btn btn btn-outline btn-sm" type="button" aria-label="Toggle theme">Dark Mode</button>
+  </div>
+
+  <main id="main-content" style="padding-top: 50px;">
+    <div style="max-width: 500px; margin: 0 auto 15px auto; text-align: center;">
+      <div style="margin-bottom: 10px;">
+        <span style="font-size: 2.2rem; font-weight: 800; color: var(--primary-color); letter-spacing: -0.5px;">StudentHub</span>
+      </div>
+      <h1>Portal Login</h1>
+      <p class="text-muted">
+        Sign in to access your student dashboard, event registrations, and management tools (Practical 10).
+      </p>
+    </div>
+
+    <!-- Alert Messages from URL parameters -->
+    <div id="login-alerts" style="max-width: 500px; margin: 0 auto 15px auto;"></div>
+
+    <div class="form-card" style="max-width: 500px;">
+      <form method="POST" action="php/login_process.php" id="login-form">
+        <div class="form-group">
+          <label class="form-label" for="login-email">Registered Email *</label>
+          <input type="email" id="login-email" name="email" class="form-control" required placeholder="e.g. student@charusat.edu.in">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-password">Password *</label>
+          <input type="password" id="login-password" name="password" class="form-control" required placeholder="Enter your password">
+        </div>
+
+        <div class="form-group" style="display:flex; justify-content:space-between; align-items:center;">
+          <label class="checkbox-item">
+            <input type="checkbox" name="remember" id="remember" value="1">
+            <span>Remember Me (7 Days)</span>
+          </label>
+          <span style="font-size:0.85rem; color:var(--text-muted);">CHARUSAT Portal</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+
+        <div style="text-align: center; margin-top: 18px; font-size: 0.95rem;">
+          Don't have an account? <a href="register.html" style="color: var(--primary-color); font-weight: 600;">Register here</a>
+        </div>
+      </form>
+    </div>
+
+    <!-- Registered Test Accounts for Examination -->
+    <div class="card" style="max-width: 500px; margin: 25px auto; background: var(--card-bg); border: 1px solid var(--border-color);">
+      <h3 style="font-size: 1.05rem; margin-bottom: 8px; color: var(--primary-color);">Examination Login Credentials</h3>
+      <p class="text-muted" style="font-size: 0.85rem; margin-bottom: 12px;">
+        Log in using either of the following verified credentials:
+      </p>
+      <div style="font-size: 0.85rem; color: var(--text-color); line-height: 1.8; background: var(--bg-color); padding: 12px; border-radius: 6px; border: 1px solid var(--border-color);">
+        <div><strong>Administrator:</strong> <code>manthanvasoya07@gmail.com</code> / <code>011207@man</code></div>
+        <div><strong>Student:</strong> <code>25ce136@charusat.edu.in</code> / <code>011207@Man</code></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-bottom">
+      <p>&copy; 2026 StudentHub Portal | ITUE203 Practical 10 (Authentication & Sessions)</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Handle URL parameters for login feedback
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const alerts = document.getElementById('login-alerts');
+
+      if (params.get('error') === 'invalid_credentials') {
+        alerts.innerHTML = '<div class="alert alert-danger">Invalid email or password. Please verify your credentials.</div>';
+      } else if (params.get('error') === 'timeout') {
+        alerts.innerHTML = '<div class="alert alert-info">Session expired due to 15 minutes of inactivity. Please log in again.</div>';
+      } else if (params.get('error') === 'unauthorized') {
+        alerts.innerHTML = '<div class="alert alert-danger">Please log in to access the requested portal resource.</div>';
+      } else if (params.get('logout') === '1') {
+        alerts.innerHTML = '<div class="alert alert-success">You have been logged out securely.</div>';
+      }
+    });
+  </script>
+</body>
+</html>

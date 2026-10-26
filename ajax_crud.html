@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX Event Registration & JSON API | StudentHub</title>
+  <link rel="stylesheet" href="/studenthub/css/style.css">
+  <link rel="stylesheet" href="/studenthub/css/responsive.css">
+  <script>
+    (function() {
+      if (window.location.protocol === 'file:' || (window.location.port && window.location.port !== '80' && window.location.port !== '443')) {
+        var currentFile = window.location.pathname.split('/').pop() || 'ajax_crud.html';
+        window.location.replace('http://localhost/studenthub/' + currentFile);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Standardized Unified Navigation Bar -->
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+      <a href="/studenthub/index.html" class="brand">
+        <span>StudentHub</span>
+      </a>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item"><a href="/studenthub/index.html">Home</a></li>
+        <li class="nav-item"><a href="/studenthub/about.html">About</a></li>
+        <li class="nav-item"><a href="/studenthub/events.html">Events</a></li>
+        <li class="nav-item"><a href="/studenthub/profile.html">Directory</a></li>
+        <li class="nav-item"><a href="/studenthub/faq.html">FAQ</a></li>
+        <li class="nav-item"><a href="/studenthub/contact.html">Contact</a></li>
+        <li class="nav-item"><a href="/studenthub/feedback.html">Feedback</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/students_crud.php">Student CRUD</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/events_crud.php">Event CRUD</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/ajax_crud.html" class="active">AJAX API</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/admin_dashboard.php">Admin Panel</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div id="nav-user-controls" style="display:flex; align-items:center; gap:6px;"></div>
+        <button id="theme-toggle-btn" class="theme-toggle-btn" type="button" aria-label="Toggle theme">Dark Mode</button>
+        <button id="hamburger-btn" class="hamburger-btn" type="button" aria-label="Menu">Menu</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="breadcrumb-container">
+    <nav aria-label="Breadcrumb">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/studenthub/index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="/studenthub/php/admin_dashboard.php">Admin</a></li>
+        <li class="breadcrumb-item active" aria-current="page">AJAX Event Registration & JSON API</li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="main-content">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:20px;">
+      <div>
+        <h1>AJAX Event Registration & Live JSON API Manager (Practical 13)</h1>
+        <p class="text-muted">
+          Manage campus event registrations and inspect REST-like JSON API responses asynchronously with no full-page reloads using Fetch API and <code>php/api.php</code>.
+        </p>
+      </div>
+      <div>
+        <span id="ajax-status-badge" class="badge badge-success" style="padding:6px 12px; font-size:0.85rem;">
+          Connecting...
+        </span>
+      </div>
+    </div>
+
+    <!-- Alert / Toast Notification Box -->
+    <div id="ajax-alert" class="alert" style="display:none;" role="alert"></div>
+
+    <!-- Top KPI Bar (Updated Live via Fetch without Reload) -->
+    <section class="kpi-grid" aria-label="Live Registration KPI Metrics">
+      <div class="kpi-card">
+        <span class="kpi-lbl">Total Registrations</span>
+        <span id="kpi-total-registrations" class="kpi-num">--</span>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-lbl">Open Campus Events</span>
+        <span id="kpi-open-events" class="kpi-num">--</span>
+      </div>
+      <div class="kpi-card">
+        <span class="kpi-lbl">Registered Students</span>
+        <span id="kpi-total-students" class="kpi-num">--</span>
+      </div>
+      <div class="kpi-card" style="border-left: 4px solid var(--success-color);">
+        <span class="kpi-lbl">JSON API Status</span>
+        <span id="kpi-api-status" style="font-size: 0.95rem; font-weight: 600; color: var(--success-color); margin-top: 6px;">
+          Checking API...
+        </span>
+      </div>
+    </section>
+
+    <!-- Two-Column Panel: Left Enroll Form + Right Registrations Table -->
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 25px; align-items: start;">
+      <!-- LEFT PANEL: ENROLL STUDENT INTO CAMPUS EVENT (AJAX POST) -->
+      <section class="card" aria-labelledby="enroll-form-heading">
+        <h2 id="enroll-form-heading" style="font-size: 1.25rem; margin-bottom: 15px; color: var(--primary-color);">
+          Enroll Student in Event
+        </h2>
+
+        <form id="ajax-enroll-form">
+          <div class="form-group">
+            <label class="form-label" for="enroll-student">Select Student *</label>
+            <select id="enroll-student" name="student_id" class="form-control" required>
+              <option value="">Loading students from database...</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="enroll-event">Select Campus Event *</label>
+            <select id="enroll-event" name="event_id" class="form-control" required>
+              <option value="">Loading campus events...</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="enroll-role">Participation Role *</label>
+            <select id="enroll-role" name="role" class="form-control" required>
+              <option value="Participant">Participant</option>
+              <option value="Volunteer">Volunteer</option>
+              <option value="Coordinator">Coordinator</option>
+              <option value="Speaker">Speaker</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="enroll-notes">Registration Notes (Optional)</label>
+            <input type="text" id="enroll-notes" name="notes" class="form-control" placeholder="e.g. Team Lead, Hardware Track">
+          </div>
+
+          <button type="submit" id="enroll-submit-btn" class="btn btn-primary btn-block">
+            Register for Event (AJAX POST)
+          </button>
+        </form>
+      </section>
+
+      <!-- RIGHT PANEL: LIVE EVENT REGISTRATIONS TABLE (AJAX GET/UPDATE/DELETE) -->
+      <section class="card" aria-labelledby="registrations-heading">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:15px;">
+          <h2 id="registrations-heading" style="font-size: 1.25rem; margin: 0; color: var(--primary-color);">
+            Live Event Registrations
+          </h2>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+            <input type="text" id="reg-search" class="filter-input" placeholder="Search student or event..." aria-label="Search Registrations" style="width: 200px;">
+            <select id="reg-category" class="filter-select" aria-label="Filter by Event Category">
+              <option value="All">All Categories</option>
+              <option value="Technical">Technical</option>
+              <option value="Cultural">Cultural</option>
+              <option value="Workshop">Workshop</option>
+              <option value="Sports">Sports</option>
+            </select>
+            <button id="refresh-btn" class="btn btn-outline btn-sm" type="button" title="Reload live from API">Reload Data</button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Student</th>
+                <th>Campus Event</th>
+                <th>Date & Venue</th>
+                <th>Role (Inline Update)</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="registrations-tbody">
+              <tr>
+                <td colspan="6" class="text-center text-muted" style="padding: 30px;">
+                  Connecting to /studenthub/php/api.php and loading registrations...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- BOTTOM COLLAPSIBLE PANEL: LIVE JSON API RESPONSE INSPECTOR -->
+    <section class="card" style="margin-top: 25px;" aria-labelledby="inspector-heading">
+      <div style="display:flex; justify-content:space-between; align-items:center; cursor:pointer;" id="inspector-header">
+        <div>
+          <h3 id="inspector-heading" style="font-size: 1.15rem; margin: 0; color: var(--primary-color);">
+            Live JSON API Response Inspector (php/api.php)
+          </h3>
+          <p class="text-muted" style="margin: 4px 0 0 0; font-size: 0.85rem;">
+            Inspect raw JSON payload received from the server during asynchronous fetch calls. Useful for lab viva demonstration.
+          </p>
+        </div>
+        <button id="inspector-toggle-btn" class="btn btn-outline btn-sm" type="button">
+          Toggle View
+        </button>
+      </div>
+      <div id="inspector-body">
+        <pre id="json-inspector" class="json-inspector-box">// Waiting for initial API fetch...</pre>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-bottom">
+      <p>&copy; 2026 StudentHub Portal | ITUE203 Practical 13 (AJAX & REST-like JSON API)</p>
+    </div>
+  </footer>
+
+  <script src="/studenthub/js/script.js"></script>
+  <script src="/studenthub/js/ajax_crud.js"></script>
+</body>
+</html>

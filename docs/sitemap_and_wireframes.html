@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sitemap, Navigation Flow & Wireframes | StudentHub Portal (P1)</title>
+  <style>
+    :root {
+      --primary: #1e40af;
+      --secondary: #0d9488;
+      --accent: #f59e0b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #cbd5e1;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 30px 20px; line-height: 1.6; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    header { background: var(--card); padding: 25px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    h1 { color: var(--primary); font-size: 2rem; margin-bottom: 8px; }
+    h2 { color: var(--primary); font-size: 1.5rem; margin: 25px 0 15px 0; border-bottom: 2px solid var(--border); padding-bottom: 6px; }
+    h3 { font-size: 1.15rem; color: var(--secondary); margin-bottom: 8px; }
+    .badge { display: inline-block; padding: 4px 10px; background: #dbeafe; color: #1e40af; border-radius: 99px; font-size: 0.8rem; font-weight: bold; }
+    .card { background: var(--card); padding: 24px; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 25px; }
+
+    /* Sitemap Hierarchy Tree */
+    .tree { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
+    .tree-root { background: var(--primary); color: #fff; padding: 12px 20px; border-radius: 8px; font-weight: bold; text-align: center; }
+    .tree-branches { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+    .branch-card { background: #f1f5f9; border: 1px solid var(--border); border-radius: 8px; padding: 15px; }
+    .branch-card ul { list-style: none; margin-top: 8px; font-size: 0.9rem; }
+    .branch-card li { margin-bottom: 6px; padding-left: 12px; position: relative; }
+    .branch-card li::before { content: "•"; color: var(--primary); position: absolute; left: 0; }
+
+    /* Wireframe Box Models */
+    .wireframe-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+    .wireframe-box { background: #fff; border: 2px dashed #94a3b8; border-radius: 8px; padding: 16px; }
+    .wf-header { background: #e2e8f0; height: 35px; border-radius: 4px; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; font-weight: bold; font-size: 0.8rem; margin-bottom: 10px; }
+    .wf-banner { background: #fed7aa; height: 25px; border-radius: 4px; margin-bottom: 10px; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; }
+    .wf-hero { background: #cbd5e1; height: 70px; border-radius: 4px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: bold; }
+    .wf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px; }
+    .wf-card { background: #f1f5f9; border: 1px solid #cbd5e1; height: 60px; border-radius: 4px; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; }
+    .wf-footer { background: #334155; color: #fff; height: 35px; border-radius: 4px; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">Practical 1 Lab Submission</span>
+      <h1>StudentHub Portal — Sitemap, Navigation & Wireframes</h1>
+      <p style="color: var(--muted);">Course: ITUE203 Web Development Frameworks | Semester 3 B.Tech | CHARUSAT University</p>
+      <div style="margin-top: 10px;">
+        <a href="../index.html" style="color: var(--primary); font-weight: bold; text-decoration: none;">&larr; Return to Live Portal Home</a>
+      </div>
+    </header>
+
+    <!-- Section 1: Sitemap Hierarchy Tree -->
+    <section class="card">
+      <h2>1. Sitemap Hierarchy Tree</h2>
+      <p style="color: var(--muted); margin-bottom: 15px;">Complete structured map of all 12 frontend HTML pages and backend PHP endpoints.</p>
+
+      <div class="tree">
+        <div class="tree-root">StudentHub Portal Root (index.html)</div>
+        <div class="tree-branches">
+          <div class="branch-card">
+            <h3>Public Pages</h3>
+            <ul>
+              <li><strong>index.html:</strong> Home, Hero & Slider</li>
+              <li><strong>about.html:</strong> College & Architecture</li>
+              <li><strong>events.html:</strong> JSON Events & Modal</li>
+              <li><strong>profile.html:</strong> Student Directory</li>
+              <li><strong>faq.html:</strong> Collapsible Accordion</li>
+            </ul>
+          </div>
+
+          <div class="branch-card">
+            <h3>Interactive Forms</h3>
+            <ul>
+              <li><strong>register.html:</strong> Regex Validation</li>
+              <li><strong>login.html:</strong> Authentication & RBAC</li>
+              <li><strong>contact.html:</strong> Inquiry & JSON store</li>
+              <li><strong>feedback.html:</strong> Ratings & CSV store</li>
+            </ul>
+          </div>
+
+          <div class="branch-card">
+            <h3>CRUD & APIs</h3>
+            <ul>
+              <li><strong>ajax_crud.html:</strong> SPA Fetch CRUD</li>
+              <li><strong>students_crud.php:</strong> MySQL Table CRUD</li>
+              <li><strong>events_crud.php:</strong> Poster Upload CRUD</li>
+              <li><strong>api.php:</strong> REST-like JSON API</li>
+            </ul>
+          </div>
+
+          <div class="branch-card">
+            <h3>Administrative</h3>
+            <ul>
+              <li><strong>admin.html:</strong> Gateway Portal</li>
+              <li><strong>admin_dashboard.php:</strong> Analytics</li>
+              <li><strong>auth_check.php:</strong> 15-min Timeout</li>
+              <li><strong>audit_logs:</strong> Activity Tracking</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Visual Wireframe Blueprints -->
+    <section class="card">
+      <h2>2. Visual Wireframe Layout Blueprints</h2>
+      <p style="color: var(--muted); margin-bottom: 15px;">Low-fidelity page wireframes showcasing structural hierarchy, accessibility skip links, and responsive grid layouts.</p>
+
+      <div class="wireframe-grid">
+        <!-- Home Page Wireframe -->
+        <div class="wireframe-box">
+          <h3 style="text-align: center; margin-bottom: 8px;">Home Page (index.html)</h3>
+          <div class="wf-banner">[Notice Banner - Dismissible]</div>
+          <div class="wf-header">
+            <span>Logo</span>
+            <span>Nav Links (Home, Events, etc.)</span>
+            <span>Theme Toggle</span>
+          </div>
+          <div class="wf-hero">[Hero Section - Heading & CTA Buttons]</div>
+          <div style="background:#e0e7ff; height:45px; border-radius:4px; margin-bottom:10px; display:flex; align-items:center; justify-content:center; font-size:0.75rem;">
+            [Next/Prev Image & Event Slider]
+          </div>
+          <div class="wf-grid">
+            <div class="wf-card">Events</div>
+            <div class="wf-card">Security</div>
+            <div class="wf-card">AJAX CRUD</div>
+          </div>
+          <div class="wf-footer">[Footer - 4 Columns & University Copyright]</div>
+        </div>
+
+        <!-- Registration Page Wireframe -->
+        <div class="wireframe-box">
+          <h3 style="text-align: center; margin-bottom: 8px;">Registration (register.html)</h3>
+          <div class="wf-header">
+            <span>Logo</span>
+            <span>Breadcrumb: Home / Register</span>
+          </div>
+          <div style="background:#f8fafc; border:1px solid #cbd5e1; padding:12px; border-radius:6px; margin-bottom:10px;">
+            <div style="background:#e2e8f0; height:18px; margin-bottom:6px; border-radius:3px;"></div>
+            <div style="background:#e2e8f0; height:18px; margin-bottom:6px; border-radius:3px;"></div>
+            <div style="background:#fee2e2; height:12px; margin-bottom:8px; border-radius:3px; font-size:0.65rem; color:#991b1b; display:flex; align-items:center; padding-left:4px;">[Regex Error Label]</div>
+            <div style="background:#d1fae5; height:8px; border-radius:4px; margin-bottom:8px;"></div>
+            <div style="background:#1e40af; color:#fff; height:24px; border-radius:4px; font-size:0.75rem; display:flex; align-items:center; justify-content:center;">Submit Button</div>
+          </div>
+          <div class="wf-footer">[Footer Links]</div>
+        </div>
+
+        <!-- Admin Dashboard Wireframe -->
+        <div class="wireframe-box">
+          <h3 style="text-align: center; margin-bottom: 8px;">Admin Dashboard (admin_dashboard.php)</h3>
+          <div class="wf-header">
+            <span>Admin Console</span>
+            <span>Logout</span>
+          </div>
+          <div class="wf-grid">
+            <div class="wf-card" style="background:#dbeafe;">Total Users</div>
+            <div class="wf-card" style="background:#ccfbf1;">Total Students</div>
+            <div class="wf-card" style="background:#fef3c7;">Active Events</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-bottom:10px;">
+            <div style="background:#f8fafc; border:1px solid #cbd5e1; height:70px; font-size:0.7rem; padding:4px;">Recent Registrations Table</div>
+            <div style="background:#f8fafc; border:1px solid #cbd5e1; height:70px; font-size:0.7rem; padding:4px;">Audit Logs Security Trail</div>
+          </div>
+          <div class="wf-footer">[Admin Session Guard & Footer]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Design Standards -->
+    <section class="card">
+      <h2>3. Design System & Breakpoint Specifications</h2>
+      <ul style="padding-left: 20px; line-height: 1.8;">
+        <li><strong>Primary Palette:</strong> <code>#1e40af</code> (Royal College Blue), <code>#0d9488</code> (Teal Accent), <code>#f59e0b</code> (Amber Gold).</li>
+        <li><strong>Dark Theme Background:</strong> <code>#0f172a</code> (Slate 900), Card Background: <code>#1e293b</code> (Slate 800).</li>
+        <li><strong>Responsive Breakpoints:</strong> Mobile (<code>&le; 576px</code>), Tablet (<code>577px to 992px</code>), Desktop (<code>&gt; 992px</code>).</li>
+        <li><strong>Accessibility:</strong> WCAG 2.1 AA compliant contrast ratio, skip links, semantic landmark tags, and keyboard navigability.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

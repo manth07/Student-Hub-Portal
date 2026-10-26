@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration | StudentHub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>
+    (function() {
+      if (window.location.protocol === 'file:' || (window.location.port && window.location.port !== '80' && window.location.port !== '443')) {
+        var currentFile = window.location.pathname.split('/').pop() || 'register.html';
+        window.location.replace('http://localhost/studenthub/' + currentFile);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top-Right Controls (No Navbar) -->
+  <div style="position: absolute; top: 16px; right: 20px; z-index: 100;">
+    <button id="theme-toggle-btn" class="theme-toggle-btn btn btn-outline btn-sm" type="button" aria-label="Toggle theme">Dark Mode</button>
+  </div>
+
+  <main id="main-content" style="padding-top: 50px;">
+    <div style="max-width: 650px; margin: 0 auto 15px auto; text-align: center;">
+      <div style="margin-bottom: 10px;">
+        <span style="font-size: 2.2rem; font-weight: 800; color: var(--primary-color); letter-spacing: -0.5px;">StudentHub</span>
+      </div>
+      <h1>Student Portal Registration</h1>
+      <p class="text-muted">
+        Create your university student profile. Validated in real-time using regular expressions and a live password complexity meter (Practical 5 & 9).
+      </p>
+    </div>
+
+    <div class="form-card">
+      <form method="POST" action="php/register_process.php" id="register-form" novalidate>
+        <!-- Full Name -->
+        <div class="form-group">
+          <label class="form-label" for="full_name">Full Name *</label>
+          <input type="text" id="full_name" name="full_name" class="form-control" placeholder="e.g. Diya Patel" required>
+          <span id="err-full_name" class="error-msg"></span>
+        </div>
+
+        <!-- University Email -->
+        <div class="form-group">
+          <label class="form-label" for="email">University Email *</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="e.g. diya.patel@charusat.edu.in" required>
+          <span id="err-email" class="error-msg"></span>
+        </div>
+
+        <!-- Indian Mobile Number -->
+        <div class="form-group">
+          <label class="form-label" for="mobile">Mobile Number (10 Digits) *</label>
+          <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="e.g. 9825100002" required>
+          <span id="err-mobile" class="error-msg"></span>
+        </div>
+
+        <!-- Password & Strength Meter -->
+        <div class="form-group">
+          <label class="form-label" for="password">Password *</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Min 8 chars, 1 uppercase, 1 number, 1 special char" required>
+          <div class="password-meter-container">
+            <div class="password-meter-bar">
+              <div id="password-meter-fill" class="password-meter-fill"></div>
+            </div>
+            <span id="password-meter-text" class="password-meter-text"></span>
+          </div>
+          <span id="err-password" class="error-msg"></span>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label class="form-label" for="confirm_password">Confirm Password *</label>
+          <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Re-enter password" required>
+          <span id="err-confirm_password" class="error-msg"></span>
+        </div>
+
+        <!-- Course Dropdown -->
+        <div class="form-group">
+          <label class="form-label" for="course">Degree / Course *</label>
+          <select id="course" name="course" class="form-control" required>
+            <option value="">-- Select Your Branch --</option>
+            <option value="B.Tech CE">B.Tech Computer Engineering (CE)</option>
+            <option value="B.Tech IT">B.Tech Information Technology (IT)</option>
+            <option value="B.Tech CSE">B.Tech Computer Science & Eng. (CSE)</option>
+            <option value="BCA">Bachelor of Computer Applications (BCA)</option>
+          </select>
+          <span id="err-course" class="error-msg"></span>
+        </div>
+
+        <!-- Academic Year Dropdown -->
+        <div class="form-group">
+          <label class="form-label" for="year">Year of Study *</label>
+          <select id="year" name="year" class="form-control" required>
+            <option value="">-- Select Current Year --</option>
+            <option value="1">1st Year (Semester 1 & 2)</option>
+            <option value="2">2nd Year (Semester 3 & 4)</option>
+            <option value="3">3rd Year (Semester 5 & 6)</option>
+            <option value="4">4th Year (Semester 7 & 8)</option>
+          </select>
+          <span id="err-year" class="error-msg"></span>
+        </div>
+
+        <!-- Gender Radios -->
+        <div class="form-group">
+          <label class="form-label">Gender *</label>
+          <div class="radio-group">
+            <label class="radio-item">
+              <input type="radio" name="gender" value="Male"> Male
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="gender" value="Female"> Female
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="gender" value="Other"> Other
+            </label>
+          </div>
+          <span id="err-gender" class="error-msg"></span>
+        </div>
+
+        <!-- Terms and Conditions Checkbox -->
+        <div class="form-group">
+          <label class="checkbox-item">
+            <input type="checkbox" id="terms" name="terms" value="1">
+            <span>I agree to the university code of conduct and student portal terms.</span>
+          </label>
+          <span id="err-terms" class="error-msg"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Submit Student Registration</button>
+
+        <div style="text-align: center; margin-top: 18px; font-size: 0.95rem;">
+          Already have an account? <a href="login.html" style="color: var(--primary-color); font-weight: 600;">Login here</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-bottom">
+      <p>&copy; 2026 StudentHub Portal | ITUE203 Practical 5 (Regex Validation)</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/validation.js"></script>
+</body>
+</html>

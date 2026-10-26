@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard | StudentHub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+      <a href="/studenthub/index.html" class="brand">
+        <span>StudentHub</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item"><a href="/studenthub/index.html">Home</a></li>
+        <li class="nav-item"><a href="/studenthub/about.html">About</a></li>
+        <li class="nav-item"><a href="/studenthub/events.html">Events</a></li>
+        <li class="nav-item"><a href="/studenthub/profile.html">Directory</a></li>
+        <li class="nav-item"><a href="/studenthub/faq.html">FAQ</a></li>
+        <li class="nav-item"><a href="/studenthub/contact.html">Contact</a></li>
+        <li class="nav-item"><a href="/studenthub/feedback.html">Feedback</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/students_crud.php">Student CRUD</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/events_crud.php">Event CRUD</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/ajax_crud.html">AJAX API</a></li>
+        <li class="nav-item admin-only-link"><a href="/studenthub/php/admin_dashboard.php">Admin Panel</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div id="nav-user-controls" style="display:flex; align-items:center; gap:6px;"></div>
+        <button id="theme-toggle-btn" class="theme-toggle-btn" type="button" aria-label="Toggle theme">Dark Mode</button>
+        <button id="hamburger-btn" class="hamburger-btn" type="button" aria-label="Menu">Menu</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="breadcrumb-container">
+    <nav aria-label="Breadcrumb">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/studenthub/index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Student Dashboard</li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="main-content">
+    <!-- Session Banner Container -->
+    <div id="session-status-container" style="margin-bottom: 25px;">
+      <div class="alert alert-info">
+        <div>Checking active session credentials with server...</div>
+      </div>
+    </div>
+
+    <!-- Student Welcome Box -->
+    <section class="card" style="margin-bottom: 30px; background: linear-gradient(135deg, rgba(30,64,175,0.06), rgba(13,148,136,0.06));">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px;">
+        <div>
+          <h1 id="welcome-heading" style="font-size: 1.85rem; margin-bottom: 6px;">Welcome to Your Student Portal</h1>
+          <p id="welcome-subtext" class="text-muted" style="margin: 0;">
+            Manage your campus activities, event registrations, and explore interactive academic modules.
+          </p>
+        </div>
+        <div id="dashboard-actions" style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="events.html" class="btn btn-primary btn-sm">Browse Events</a>
+          <a href="profile.html" class="btn btn-secondary btn-sm">View Directory</a>
+          <a href="ajax_crud.html" class="btn btn-outline btn-sm admin-only-link">Live AJAX CRUD</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard 3 Column Cards -->
+    <div class="grid-3">
+      <div class="card">
+        <h3>Registered Activities</h3>
+        <p class="text-muted">You are currently registered for campus hackathons and technical bootcamps.</p>
+        <ul style="padding-left: 20px; font-size: 0.9rem; line-height: 1.8; color: var(--text-color);">
+          <li>HackCHARUSAT 2026 (Confirmed)</li>
+          <li>Full Stack Web Dev Workshop (Confirmed)</li>
+        </ul>
+        <a href="events.html" class="btn btn-outline btn-sm" style="margin-top: 15px;">Explore More Events</a>
+      </div>
+
+      <div class="card">
+        <h3>Student Information</h3>
+        <p class="text-muted">Profile records verified in the CHARUSAT MySQL database directory.</p>
+        <p style="font-size: 0.9rem;"><strong>Status:</strong> <span class="badge badge-success">Active Enrolled</span></p>
+        <p style="font-size: 0.9rem;"><strong>Term:</strong> Semester 3 (2026-2027)</p>
+        <a href="profile.html" class="btn btn-outline btn-sm" style="margin-top: 15px;">View Directory Card</a>
+      </div>
+
+      <div class="card">
+        <h3>Support & Feedback</h3>
+        <p class="text-muted">Need help with academic frameworks practicals or have suggestions for the portal?</p>
+        <div style="display:flex; flex-direction:column; gap:8px; margin-top:15px;">
+          <a href="feedback.html" class="btn btn-outline btn-sm">Give Star Feedback</a>
+          <a href="contact.html" class="btn btn-outline btn-sm">Contact Department</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-bottom">
+      <p>&copy; 2026 StudentHub Portal | ITUE203 Practical 10 (Student Dashboard)</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Asynchronous Session Check from php/session_status.php
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('php/session_status.php', { cache: 'no-store' })
+        .then(res => res.json())
+        .then(data => {
+          const banner = document.getElementById('session-status-container');
+          const welcomeHeading = document.getElementById('welcome-heading');
+          const welcomeSubtext = document.getElementById('welcome-subtext');
+
+          if (data && data.logged_in) {
+            welcomeHeading.textContent = `Welcome Back, ${data.name}!`;
+            welcomeSubtext.textContent = `Logged in as ${data.email} | Academic Role: ${data.role.toUpperCase()}`;
+
+            banner.innerHTML = `
+              <div class="alert alert-success">
+                <div>
+                  <strong>Session Active:</strong> Welcome ${data.name} (${data.email}). 15-minute inactivity security timer active.
+                </div>
+              </div>
+            `;
+          }
+        })
+        .catch(err => {
+          console.error('Session fetch error:', err);
+        });
+    });
+  </script>
+</body>
+</html>
