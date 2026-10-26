@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "question": "What is the StudentHub Portal?",
+    "answer": "StudentHub is an all-in-one college semester academic and extracurricular platform for CHARUSAT students to track events, register online, view directories, and manage student details.",
+    "category": "General"
+  },
+  {
+    "id": 2,
+    "question": "Who can register on the StudentHub Portal?",
+    "answer": "Any active student enrolled in CHARUSAT courses (B.Tech CE, IT, CSE, BCA, etc.) can register using their valid university email address and enrollment number.",
+    "category": "Account"
+  },
+  {
+    "id": 3,
+    "question": "How do I register for campus technical and cultural events?",
+    "answer": "Go to the Events page, click on any event card or 'View Details' button, and register directly via the interactive popup modal or portal dashboard.",
+    "category": "Events"
+  },
+  {
+    "id": 4,
+    "question": "What should I do if I forget my login password?",
+    "answer": "Contact your department student coordinator or use the demo login credentials provided on the login page for lab examination and viva demonstrations.",
+    "category": "Account"
+  },
+  {
+    "id": 5,
+    "question": "Are event certificates provided after attending workshops?",
+    "answer": "Yes, e-certificates authorized by the university and student council are automatically issued to all students who register and attend.",
+    "category": "Events"
+  },
+  {
+    "id": 6,
+    "question": "What is the format of the student enrollment number?",
+    "answer": "Enrollment numbers follow the official CHARUSAT scheme such as 24CE001, 24IT005, or 24BCA010 where 24 represents the batch year and CE/IT/BCA represents the branch.",
+    "category": "Academics"
+  },
+  {
+    "id": 7,
+    "question": "Can I edit my student profile details after registration?",
+    "answer": "Yes, administrators and students can update contact information and course details via the Student CRUD module or student dashboard.",
+    "category": "Account"
+  },
+  {
+    "id": 8,
+    "question": "How does the single-page AJAX CRUD module work?",
+    "answer": "The AJAX CRUD page uses modern JavaScript Fetch API to perform GET, POST, PUT, and DELETE operations against php/api.php without refreshing the web browser.",
+    "category": "Technical"
+  },
+  {
+    "id": 9,
+    "question": "What image formats and file size limits apply to event posters?",
+    "answer": "Poster uploads support JPEG, PNG, and WebP formats with a strict server-side validation limit of 2MB (2,097,152 bytes).",
+    "category": "Technical"
+  },
+  {
+    "id": 10,
+    "question": "How long does a login session remain active?",
+    "answer": "Sessions include an automatic 15-minute inactivity security timeout. If idle for more than 900 seconds, the session expires for student security.",
+    "category": "Security"
+  },
+  {
+    "id": 11,
+    "question": "Where are contact form submissions stored?",
+    "answer": "Contact messages submitted via contact.html are processed by php/contact_process.php and safely appended to the JSON database file data/contacts.json.",
+    "category": "Technical"
+  },
+  {
+    "id": 12,
+    "question": "Where is student feedback saved?",
+    "answer": "Feedback submitted through feedback.html is processed by php/feedback_process.php and stored in a comma-separated data/feedback.csv file.",
+    "category": "Technical"
+  },
+  {
+    "id": 13,
+    "question": "How do I switch between Light and Dark mode?",
+    "answer": "Click the Sun/Moon toggle button located in the top navigation bar. Your chosen theme preference is saved in your browser's localStorage.",
+    "category": "General"
+  },
+  {
+    "id": 14,
+    "question": "What are the roles available in the StudentHub portal?",
+    "answer": "The system features Role-Based Access Control (RBAC) with two roles: 'student' (standard access) and 'admin' (complete CRUD, analytics, and audit log access).",
+    "category": "Security"
+  },
+  {
+    "id": 15,
+    "question": "Which software stack is required to run StudentHub locally?",
+    "answer": "The project runs on Apache 2.4, PHP 8.x, and MySQL/MariaDB provided out of the box by standard XAMPP on Windows, macOS, or Linux.",
+    "category": "General"
+  }
+]

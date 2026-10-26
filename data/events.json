@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "HackCHARUSAT 2026",
+    "category": "Technical",
+    "date": "2026-11-15",
+    "venue": "DEPSTAR Labs & Seminar Hall",
+    "description": "36-hour flagship hackathon bringing together bright student coders to solve real-world problems using AI, IoT, and Web3."
+  },
+  {
+    "id": 2,
+    "title": "CodeStorm Competitive Coding",
+    "category": "Technical",
+    "date": "2026-11-20",
+    "venue": "CSPIT Computer Center Lab 3",
+    "description": "3-round algorithmic challenge testing Data Structures and Algorithms with speed and efficiency scoring in C++, Java, and Python."
+  },
+  {
+    "id": 3,
+    "title": "Spoural Annual Cultural Fest",
+    "category": "Cultural",
+    "date": "2026-12-05",
+    "venue": "University Central Lawns",
+    "description": "The mega youth festival of CHARUSAT featuring music bands, solo/group dances, theatrical plays, and star celebrity night."
+  },
+  {
+    "id": 4,
+    "title": "Full Stack Web Dev Bootcamp",
+    "category": "Workshop",
+    "date": "2026-11-10",
+    "venue": "Seminar Hall 2, CSPIT",
+    "description": "Intensive hands-on practical workshop covering modern responsive UI, procedural PHP backends, MySQL, and Fetch API CRUD."
+  },
+  {
+    "id": 5,
+    "title": "Inter-Department Cricket Cup",
+    "category": "Sports",
+    "date": "2026-12-12",
+    "venue": "CHARUSAT Sports Complex Ground",
+    "description": "Exciting T20 league tournament contested between CE, IT, CSE, and BCA departments for the rolling championship trophy."
+  },
+  {
+    "id": 6,
+    "title": "AI & Deep Learning Masterclass",
+    "category": "Workshop",
+    "date": "2026-11-28",
+    "venue": "Auditorium Hall A",
+    "description": "Expert session by senior researchers on neural networks, large language model prompt engineering, and career roadmaps."
+  },
+  {
+    "id": 7,
+    "title": "RoboWars Combat Championship",
+    "category": "Technical",
+    "date": "2026-12-01",
+    "venue": "Mechanical Workshop Arena",
+    "description": "Thrilling combat robot showdown with custom-built 15kg and 30kg remote-controlled fighting bots inside an armored cage."
+  },
+  {
+    "id": 8,
+    "title": "Rangoli & Canvas Art Exhibition",
+    "category": "Cultural",
+    "date": "2026-11-18",
+    "venue": "Student Activity Center",
+    "description": "Fine arts celebration showcasing creative rangoli, water-color painting, pencil sketching, and digital graphic posters."
+  },
+  {
+    "id": 9,
+    "title": "Badminton Singles & Doubles League",
+    "category": "Sports",
+    "date": "2026-12-18",
+    "venue": "Indoor Sports Complex",
+    "description": "Fast-paced tournament for badminton enthusiasts across all university years with synthetic courts and referee panel."
+  },
+  {
+    "id": 10,
+    "title": "Cyber Security & Bug Bounty Session",
+    "category": "Workshop",
+    "date": "2026-12-22",
+    "venue": "Online via Microsoft Teams",
+    "description": "Learn OWASP Top 10 vulnerabilities, ethical penetration testing techniques, and responsible disclosure platforms."
+  },
+  {
+    "id": 11,
+    "title": "Kavyanjali Poetry & Open Mic",
+    "category": "Cultural",
+    "date": "2026-11-25",
+    "venue": "Amphitheatre Garden",
+    "description": "An evening of spoken word poetry, acoustic musical performances, and storytelling under the starry campus sky."
+  },
+  {
+    "id": 12,
+    "title": "AppDev Android & Flutter Jam",
+    "category": "Workshop",
+    "date": "2026-11-08",
+    "venue": "Advanced Software Lab",
+    "description": "Build cross-platform mobile applications from scratch, connect them to REST backends, and publish APK packages."
+  },
+  {
+    "id": 13,
+    "title": "Inter-College Table Tennis Challenge",
+    "category": "Sports",
+    "date": "2026-12-14",
+    "venue": "Indoor Sports Center Arena",
+    "description": "Table tennis championship featuring intense spin rallies, singles knockout brackets, and university team selections."
+  },
+  {
+    "id": 14,
+    "title": "UI/UX Design Sprint",
+    "category": "Technical",
+    "date": "2026-11-12",
+    "venue": "Design Studio Room 102",
+    "description": "Rapid 6-hour wireframing and prototyping challenge in Figma creating mobile apps for rural Indian farmers and students."
+  },
+  {
+    "id": 15,
+    "title": "Alumni Networking & Mentorship Meet",
+    "category": "Cultural",
+    "date": "2026-12-20",
+    "venue": "Central Convention Center",
+    "description": "Connect with distinguished CHARUSAT alumni working in top tech companies like Google, Microsoft, Amazon, TCS, and Infosys."
+  }
+]

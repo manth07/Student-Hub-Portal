@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "name": "Aarav Sharma",
+    "enrollment": "24CE001",
+    "course": "B.Tech CE",
+    "year": 2,
+    "email": "aarav.sharma@charusat.edu.in",
+    "skills": ["HTML5", "CSS3", "JavaScript", "C++"]
+  },
+  {
+    "id": 2,
+    "name": "Diya Patel",
+    "enrollment": "24CE002",
+    "course": "B.Tech CE",
+    "year": 2,
+    "email": "diya.patel@charusat.edu.in",
+    "skills": ["Python", "PHP", "MySQL", "UI Design"]
+  },
+  {
+    "id": 3,
+    "name": "Rohan Patel",
+    "enrollment": "24CE003",
+    "course": "B.Tech CE",
+    "year": 2,
+    "email": "rohan.patel@charusat.edu.in",
+    "skills": ["JavaScript", "Node.js basics", "Git", "MySQL"]
+  },
+  {
+    "id": 4,
+    "name": "Ananya Desai",
+    "enrollment": "24CE004",
+    "course": "B.Tech CE",
+    "year": 3,
+    "email": "ananya.desai@charusat.edu.in",
+    "skills": ["Java", "Spring Boot basics", "SQL", "Cloud"]
+  },
+  {
+    "id": 5,
+    "name": "Kavya Shah",
+    "enrollment": "24CE005",
+    "course": "B.Tech CE",
+    "year": 1,
+    "email": "kavya.shah@charusat.edu.in",
+    "skills": ["C Programming", "HTML5", "CSS3", "Problem Solving"]
+  },
+  {
+    "id": 6,
+    "name": "Meet Joshi",
+    "enrollment": "24IT001",
+    "course": "B.Tech IT",
+    "year": 2,
+    "email": "meet.joshi@charusat.edu.in",
+    "skills": ["PHP", "Vanilla JavaScript", "Bootstrap", "MySQL"]
+  },
+  {
+    "id": 7,
+    "name": "Pooja Dave",
+    "enrollment": "24IT002",
+    "course": "B.Tech IT",
+    "year": 3,
+    "email": "pooja.dave@charusat.edu.in",
+    "skills": ["Python", "Machine Learning", "Pandas", "Flask"]
+  },
+  {
+    "id": 8,
+    "name": "Yash Mehta",
+    "enrollment": "24IT003",
+    "course": "B.Tech IT",
+    "year": 2,
+    "email": "yash.mehta@charusat.edu.in",
+    "skills": ["Linux", "Bash Scripting", "Networking", "Cyber Security"]
+  },
+  {
+    "id": 9,
+    "name": "Tanvi Bhatt",
+    "enrollment": "24IT004",
+    "course": "B.Tech IT",
+    "year": 4,
+    "email": "tanvi.bhatt@charusat.edu.in",
+    "skills": ["DevOps", "Docker", "AWS", "CI/CD Pipelines"]
+  },
+  {
+    "id": 10,
+    "name": "Harsh Trivedi",
+    "enrollment": "24IT005",
+    "course": "B.Tech IT",
+    "year": 1,
+    "email": "harsh.trivedi@charusat.edu.in",
+    "skills": ["C++", "HTML", "CSS", "Algorithms"]
+  },
+  {
+    "id": 11,
+    "name": "Ishaan Vora",
+    "enrollment": "24CSE001",
+    "course": "B.Tech CSE",
+    "year": 2,
+    "email": "ishaan.vora@charusat.edu.in",
+    "skills": ["Flutter", "Dart", "Firebase", "Mobile UI"]
+  },
+  {
+    "id": 12,
+    "name": "Rhea Soni",
+    "enrollment": "24CSE002",
+    "course": "B.Tech CSE",
+    "year": 3,
+    "email": "rhea.soni@charusat.edu.in",
+    "skills": ["Data Science", "SQL", "Tableau", "Python"]
+  },
+  {
+    "id": 13,
+    "name": "Aryan Parmar",
+    "enrollment": "24BCA001",
+    "course": "BCA",
+    "year": 2,
+    "email": "aryan.parmar@charusat.edu.in",
+    "skills": ["PHP", "JavaScript", "Web Security", "DBMS"]
+  },
+  {
+    "id": 14,
+    "name": "Sneha Solanki",
+    "enrollment": "24BCA002",
+    "course": "BCA",
+    "year": 1,
+    "email": "sneha.solanki@charusat.edu.in",
+    "skills": ["C Language", "Web Design", "Graphic Design", "Canva"]
+  },
+  {
+    "id": 15,
+    "name": "Demo Student",
+    "enrollment": "24CE021",
+    "course": "B.Tech CE",
+    "year": 2,
+    "email": "student@charusat.edu.in",
+    "skills": ["Full Stack Web", "HTML5", "CSS3", "PHP", "MySQL"]
+  }
+]
