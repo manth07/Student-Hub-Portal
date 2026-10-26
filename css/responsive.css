@@ -1,0 +1,177 @@
+/* ==========================================================
+   StudentHub Portal - Responsive Stylesheet (responsive.css)
+   Course: ITUE203 - Web Development Frameworks (Semester 3)
+   Breakpoints:
+     - Mobile:  <= 576px
+     - Tablet:  577px to 992px
+     - Desktop: > 992px
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   Tablet View (<= 992px)
+   ---------------------------------------------------------- */
+@media (max-width: 992px) {
+  /* Navigation Menu collapse */
+  .hamburger-btn {
+    display: block;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--nav-bg);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 25px;
+    gap: 12px;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    display: none;
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-item a {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+  }
+
+  /* Grid adaptations */
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer adjustments */
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+/* ----------------------------------------------------------
+   Mobile View (<= 576px)
+   ---------------------------------------------------------- */
+@media (max-width: 576px) {
+  /* Typography */
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.4rem; }
+  h3 { font-size: 1.2rem; }
+
+  /* Hero Section */
+  .hero {
+    padding: 28px 16px;
+  }
+
+  .hero h1 {
+    font-size: 1.85rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-btns .btn {
+    width: 100%;
+  }
+
+  /* All Grids to 1 column on mobile */
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Sliders */
+  .slide {
+    padding: 24px 16px;
+    min-height: 200px;
+  }
+
+  .slide h3 {
+    font-size: 1.35rem;
+  }
+
+  .slide p {
+    font-size: 0.92rem;
+  }
+
+  .slider-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+
+  /* Form Container */
+  .form-card {
+    padding: 20px 16px;
+    border-radius: var(--radius-sm);
+  }
+
+  .radio-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Filter Bar */
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-input,
+  .filter-select {
+    width: 100%;
+  }
+
+  /* Modal */
+  .modal-content {
+    margin: 10px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  /* Footer */
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Notice Banner */
+  .notice-banner {
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ----------------------------------------------------------
+   Desktop View (> 992px)
+   ---------------------------------------------------------- */
+@media (min-width: 993px) {
+  .hamburger-btn {
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex !important;
+  }
+}
