@@ -6,17 +6,23 @@
  * ==========================================================
  */
 
+// Step 1: Start session if not already started
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Step 2: Include database connection
 require_once __DIR__ . '/db_connect.php';
 
-// Helper function to complete login session setup
+/**
+ * Step 3: Helper function to set up the session after successful login.
+ * Stores user info in session, logs the action, and redirects by role.
+ */
 function finalize_login($conn, $user) {
     // Regenerate session ID to prevent session fixation attacks
     session_regenerate_id(true);
 
+    // Step 3a: Store user details in session variables
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['user_name'] = $user['full_name'];
     $_SESSION['role'] = $user['role'];
@@ -24,7 +30,7 @@ function finalize_login($conn, $user) {
     $_SESSION['mobile'] = $user['mobile'];
     $_SESSION['last_activity'] = time();
 
-    // Log the successful login action to audit_logs
+    // Step 3b: Log the successful login to audit_logs table
     $audit_action = 'USER_LOGIN';
     $audit_details = "User {$user['email']} logged in successfully as {$user['role']}.";
     $audit_stmt = mysqli_prepare($conn, "INSERT INTO audit_logs (user_email, action, details) VALUES (?, ?, ?)");
@@ -32,7 +38,7 @@ function finalize_login($conn, $user) {
     mysqli_stmt_execute($audit_stmt);
     mysqli_stmt_close($audit_stmt);
 
-    // Redirect based on Role-Based Access Control (RBAC)
+    // Step 3c: Redirect based on Role-Based Access Control (RBAC)
     if ($user['role'] === 'admin') {
         header("Location: /studenthub/php/admin_dashboard.php");
     } else {
@@ -42,26 +48,29 @@ function finalize_login($conn, $user) {
 }
 
 // ----------------------------------------------------------
-// Standard POST Authentication (Strict Credentials Required)
+// Step 4: Handle POST Form Submission (Email + Password Login)
 // ----------------------------------------------------------
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Step 4a: Get and sanitize form inputs
     $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
     $remember = isset($_POST['remember']);
+
+    // Step 4b: Check for empty fields
 
     if (empty($email) || empty($password)) {
         header("Location: /studenthub/login.html?error=empty_fields");
         exit();
     }
 
-    // Query user record by email
+    // Step 4c: Query user record by email using prepared statement
     $stmt = mysqli_prepare($conn, "SELECT id, full_name, email, mobile, password_hash, role FROM users WHERE email = ? LIMIT 1");
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
 
     if ($user = mysqli_fetch_assoc($result)) {
-        // Verify bcrypt password hash
+        // Step 4d: Verify bcrypt password hash
         if (password_verify($password, $user['password_hash'])) {
             mysqli_stmt_close($stmt);
 

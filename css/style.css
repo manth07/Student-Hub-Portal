@@ -1,10 +1,9 @@
 /* ==========================================================
    StudentHub Portal - Main Stylesheet (style.css)
    Course: ITUE203 - Web Development Frameworks (Semester 3)
-   Clean CSS3 Variables, Flexbox, Grid, Components
    ========================================================== */
 
-/* CSS Variables for Light (Default) and Dark Themes */
+/* 1. CSS Variables & Dark Theme */
 :root {
   --primary-color: #1e40af;       /* Deep College Blue */
   --primary-hover: #1d4ed8;
@@ -121,7 +120,7 @@ body {
   line-height: 1;
 }
 
-/* Main Header & Navbar */
+/* 2. Flexbox Navbar & Header */
 header {
   background-color: var(--nav-bg);
   border-bottom: 1px solid var(--border-color);
@@ -565,7 +564,7 @@ p { margin-bottom: 12px; color: var(--text-color); }
   border-radius: 10px;
 }
 
-/* Feature & Metric Grid Cards */
+/* 3. CSS Grid Layouts & Cards */
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -628,7 +627,7 @@ p { margin-bottom: 12px; color: var(--text-color); }
   font-weight: 600;
 }
 
-/* Form Styling & Validation Messages */
+/* 4. Forms, Tables & Validation */
 .form-card {
   max-width: 650px;
   margin: 20px auto;
@@ -729,7 +728,7 @@ p { margin-bottom: 12px; color: var(--text-color); }
   cursor: pointer;
 }
 
-/* Accordion (Practical 4 & 6 for FAQ) */
+/* 5. Accordion & Modal */
 .accordion {
   display: flex;
   flex-direction: column;

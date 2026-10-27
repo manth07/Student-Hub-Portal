@@ -6,13 +6,14 @@
  * ==========================================================
  */
 
-// Start session if not already started
+// Step 1: Start session if not already started
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
 /**
- * Check if the user is authenticated with a valid session and not timed out
+ * Step 2: Check if the user is logged in and session has not timed out.
+ * If not logged in or session expired, redirect to login.html.
  */
 function check_login() {
     if (session_status() === PHP_SESSION_NONE) {
@@ -41,7 +42,8 @@ function check_login() {
 }
 
 /**
- * Enforce Admin-only access. Students will be redirected to dashboard with an error.
+ * Step 3: Enforce Admin-only access (RBAC).
+ * Students are redirected to dashboard.html with an error message.
  */
 function check_admin() {
     check_login();
@@ -52,15 +54,4 @@ function check_admin() {
     }
 }
 
-/**
- * Legacy compatibility helper
- */
-function require_role($required_roles) {
-    check_login();
-    $roles = is_array($required_roles) ? $required_roles : [$required_roles];
-    if (!in_array($_SESSION['role'], $roles)) {
-        header("Location: ../dashboard.html?error=access_denied");
-        exit();
-    }
-}
 ?>
